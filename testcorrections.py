@@ -22,7 +22,7 @@ MONTHS = {"January": "01", "February": "02", "March": "03", "April": "04",
 SINGLE_DIGIT_DAYS = {"1": "01", "2": "02", "3": "03", "4": "04", "5": "05",
                      "6": "06", "7": "07", "8": "08", "9": "09"}
 
-def iso_format(list_of_dates):
+def dates_to_iso8601(list_of_dates):
     """Returns dates in ISO-8601 format"""
     replace = [date.replace(",", " ") for date in list_of_dates]
     split = [date.split(" ") for date in replace]
@@ -37,10 +37,10 @@ def iso_format(list_of_dates):
 # pandas in your function, you should be able to write your answer using methods
 # for list, strings, tuples, dictionaries, or sets.
 
-def chronological_order(list_of_dates):
+def sort_dates(list_of_dates):
     """Returns dates in chronological order"""
     dates = {}
     for i, date in enumerate(list_of_dates):
-        dates[iso_format(list_of_dates)[i]] = date
+        dates[dates_to_iso8601(list_of_dates)[i]] = date
     sorted_dates = sorted(dates.keys())
     return [dates.get(date) for date in sorted_dates]
