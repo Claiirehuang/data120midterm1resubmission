@@ -42,5 +42,6 @@ def sort_dates(list_of_dates):
     dates = {}
     for i, date in enumerate(list_of_dates):
         dates[dates_to_iso8601(list_of_dates)[i]] = date
-    sorted_dates = sorted(dates.keys())
+    sorted_dates = list(dates.keys())
+    sorted_dates.sort()
     return [dates.get(date) for date in sorted_dates]
